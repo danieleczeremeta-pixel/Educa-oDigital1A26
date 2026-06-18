@@ -6,11 +6,28 @@ max-width: 800px;
 margin: 0 auto;
 padding: 16px;
 }
+.artigo-autor {
+    font-weight: bold;
+}
 main {
 background-color: #31a3cc;
 color: #000000;
+max-width: 800px;
+    margin: 0 auto;
+    padding: 16px
+}
+article {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 img {
-width: 24xp;
-height: 24p;
+width: 80px;
+    height: 80px;
+    display: block;
+}
+h2,
+p,
+button {
+    margin-bottom: 12px;
 }
