@@ -1,38 +1,110 @@
+/* style.css - Opção Moderno/Clean */
+
+/* --- Configurações Globais --- */
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --header-bg: #ffffff;
+    --header-text: #2c3e50;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --accent-color: #3498db; /* Azul Tech */
+    --accent-hover: #2980b9;
+    --author-color: #7f8c8d;
+    --fonte-color: #95a5a6;
+    
+    /* Cores Modo Escuro (Para quando a classe .dark-mode for ativa) */
+    --bg-dark: #1a1a1a;
+    --text-dark: #e0e0e0;
+    --header-bg-dark: #111;
+    --card-bg-dark: #242424;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Cabeçalho (Header) --- */
 header {
-    background-color: #6facd8;
-    color: #000000;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 2rem 1rem;
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 16px;
+    border-bottom: 1px solid #eee;
 }
 
-.artigo-autor {
-    font-weight: bold;
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
+header p {
+    font-size: 1.1rem;
+    color: var(--author-color);
+    margin-top: 0.5rem;
+}
+
+/* --- Área Principal (Main) --- */
 main {
-    background-color: #2d91bc;
-    color: #000000;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 16px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    padding-bottom: 5rem; /* Espaço para o botão */
 }
 
+/* --- Artigos (Cards) --- */
 article {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    overflow: hidden; /* Garante que a imagem siga o border-radius */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex; /* Layout flexível: imagem à esquerda, texto à direita */
+    flex-direction: column; /* Padrão mobile: Empilhado */
 }
 
-main img {
-    width: 80px;
-    height: 80px;
-    display: block;
+/* Ajuste para telas maiores (Desktop) */
+@media (min-width: 600px) {
+    article {
+        flex-direction: row; /* Imagem ao lado do texto */
+        align-items: center;
+    }
 }
 
-h2,
-p,
-button {
-    margin-bottom: 12px;
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
+
+article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Mantém proporção da imagem */
+    border-bottom: 1px solid #eee;
+}
+
+@media (min-width: 600px) {
+    article img {
+        width: 40%; /* Imagem ocupa 40% na direita */
+        height: 100%;
+        min-height: 250px;
+        border-bottom: none;
+        border-right: 1px solid #eee;
+    }
+}
+
+article div {
+    padding: 1.5rem;
+    flex
